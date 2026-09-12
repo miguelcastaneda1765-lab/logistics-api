@@ -11,4 +11,10 @@ describe("Logistics API", () => {
         expect(response.body.status).toBe("running");
     });
 
+    test("GET /health debe responder OK", async () => {
+        const response = await request(app).get("/health");
+
+        expect(response.statusCode).toBe(200);
+        expect(response.body.status).toBe("OK");
+    });
 });
